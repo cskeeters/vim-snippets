@@ -2,8 +2,12 @@ snippet vec "std::vector<std::string> var;" !
 std::vector<${1:std::string}>
 endsnippet
 
-snippet inc "Chad inc<>" b
+snippet inc "inc<>" !b
 #include <${1:string}>$0
+endsnippet
+
+snippet Inc "inc local" !b
+#include "${1:string}.h"$0
 endsnippet
 
 snippet str "std::string" !w
@@ -12,4 +16,8 @@ endsnippet
 
 snippet ts "To String" !
 std::to_string($1)$0
+endsnippet
+
+snippet sp "shared_ptr" !
+std::shared_ptr<$1> $0
 endsnippet
