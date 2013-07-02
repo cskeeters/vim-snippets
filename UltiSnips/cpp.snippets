@@ -14,7 +14,7 @@ snippet str "std::string" !w
 std::string
 endsnippet
 
-snippet ts "To String" !
+snippet ts "To String" !w
 std::to_string($1)$0
 endsnippet
 
@@ -22,7 +22,16 @@ snippet sp "shared_ptr" !
 std::shared_ptr<$1> $0
 endsnippet
 
+snippet ms "make_shared" !
+std::make_shared<$1>($2)$0
+endsnippet
+
 snippet cout "cout" !
 std::cout << $1 << std::endl;
+$0
+endsnippet
+
+snippet cerr "cerr" !
+std::cerr << $1 << std::endl;
 $0
 endsnippet
