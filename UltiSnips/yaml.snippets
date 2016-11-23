@@ -1,0 +1,44 @@
+snippet f
+	-
+		Prompt: ${1:Name}
+		Type: ${2:Text}
+		Required: ${3:Y}
+		Notes: ${4:Caveat}
+		Help: ${6:text}
+		Values:
+			- ${5:A}
+endsnippet
+
+snippet t
+	-
+		Prompt: ${1:Name}
+		Type: Text
+		Required: ${3:Y}
+		Notes: ${4:Caveat}
+		Help: ${6:text}
+endsnippet
+
+snippet yn
+	-
+		Prompt: ${1:Question}
+		Type: Radio
+		Required: ${2:Y}
+		Values:
+			- Yes
+			- No
+endsnippet
+
+snippet dd
+	-
+		Prompt: ${1:Question}
+		Type: Selection
+		Required: ${2:Y}
+		Values:
+			- ${3:No}
+endsnippet
+snippet file
+	-
+		Prompt: ${1:Upload}
+		Type: File
+		Required: ${2:Y}
+endsnippet

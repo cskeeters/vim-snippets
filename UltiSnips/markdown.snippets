@@ -1,0 +1,13 @@
+snippet n "New Position" !
+`!p
+from datetime import date
+snip.rv = date.today().strftime("%Y-%b-%d")
+` ${1:100} ${2: SSO} ${3: 90.00} `!p
+import locale
+locale.setlocale(locale.LC_ALL, 'en_US')
+try:
+    snip.rv = "{0:,.2f}".format(float(t[1]) * float(t[3]))
+except (ValueError, ZeroDivisionError):
+	snip.rv = "ERR"
+`
+endsnippet

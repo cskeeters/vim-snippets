@@ -1,0 +1,156 @@
+snippet dt "DOCTYPE" !
+<!DOCTYPE html>
+endsnippet
+
+snippet vp "viewport" !
+<meta name="viewport" content="width=device-width,initial-scale=1">
+endsnippet
+
+snippet utf
+<meta charset="utf-8" /> 
+endsnippet
+
+snippet a "a href" !
+<a href="${1:http://}"></a>
+endsnippet
+
+snippet "f(orm)?" "Form" r
+<form action="${1:dest}">
+	$4
+	<input type="button" value="${3:Cancel}">
+	<input type="submit" value="${2:Ok}">
+</form>
+endsnippet
+
+snippet "i(nput)?" "Text area" r
+<input type="text" name="${1:username}" id="$1" placeholder="$1" rows="6"/>
+endsnippet
+
+snippet "p(ass)?w(word)?" "password" r
+<input type="password" name="${1:password}" id="$1" placeholder="$1" rows="6"/>
+endsnippet
+
+snippet ta "Text area" !
+<textarea name="${1:message}" id="$1" placeholder="$1" rows="6"></textarea>
+endsnippet
+
+snippet link "css link" !
+	<link rel="stylesheet" href="${1:style}.css">
+endsnippet
+
+snippet script "script" !
+	<script src="js/${1:component}.js"></script>
+endsnippet
+
+snippet base "html responsive" !
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<!--
+.bowerrc
+{
+	"directory" : "js"
+}
+gem install grunt sass
+bower install normalize-css gridism js-url underscore handlebars date-steroids
+-->
+<head>
+	<meta charset="utf-8" /> 
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>${1:title}</title>
+	<script src="js/bcst.js"></script>
+	<script src="bower_components/js-url/url.js"></script>
+	<script src="bower_components/underscore/underscore.js"></script>
+	<script src="bower_components/handlebars/handlebars.js"></script>
+	<!-- http://blog.stevenlevithan.com/archives/date-time-format -->
+	<script src="bower_components/date-steroids/dist/date.js"></script>
+	<link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+	<link rel="stylesheet" href="bower_components/gridism/gridism.css">
+	<link rel="stylesheet" href="style.css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:normal|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+	<style id="hb-template" type="text/x-handlebars-template">
+		<div>{{last}}, {{first}}</div>
+	</style>
+</head>
+
+<body class="wider">
+
+	<!-- one grid per row -->
+	<div class="grid">
+		<div class="unit whole">
+			<div class="title"></div>
+		</div>
+	</div>
+
+	<div class="grid">
+
+		<div class="unit one-third">
+			<h2>sub-heading</h2>
+			Text under sub-heading
+		</div>
+
+		<div class="unit one-third">
+			<h2>sub-heading</h2>
+			Text under sub-heading
+		</div>
+
+		<div class="unit one-third">
+			<h2>sub-heading</h2>
+			Text under sub-heading
+		</div>
+
+	</div>
+
+</body>
+</html>
+endsnippet
+
+snippet nav "Navigation"
+<nav>
+	<h1>Navigation</h1>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/notes">Archive</a></li>
+	</ul>
+</nav>
+endsnippet
+
+snippet header
+<header>
+	$1
+</header>
+endsnippet
+
+snippet footer
+<footer>
+	$1
+</footer>
+endsnippet
+
+snippet div
+<div class="${1:unit}">${2:text}</div>
+endsnippet
+snippet p
+<p>
+	$1
+</p>
+endsnippet
+
+snippet table
+<table border="0">
+	<tr>
+		<th></th>
+		<th></th>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+endsnippet
+
+snippet tr
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+endsnippet
