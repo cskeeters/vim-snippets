@@ -1,0 +1,68 @@
+snippet syslog
+	#include <syslog.h>
+	openlog(argv[0], LOG_PID | LOG_PERROR | LOG_CONS, LOG_DAEMON);
+	syslog(LOG_INFO, "Format String %d", i);
+snippet daemon
+	#include <unistd.h>
+	#include <string.h>
+	if ((daemon(0, 0)) < 0) {
+	   syslog(LOG_ERR, "Error daemonizing %s", strerror(errno));
+	   exit(EXIT_FAILURE);
+	}
+snippet sleep
+	#include <unistd.h>
+	unsigned int leftover = sleep(1);
+snippet usleep
+	#include <unistd.h>
+	usleep(20);
+snippet err
+	#include <errno.h>
+	#include <string.h>
+	syslog(LOG_INFO, "Error: %s", strerror(errno));
+snippet exit
+	#include <stdlib.h>
+	exit(EXIT_FAILURE);
+snippet sprintf
+	char buffer[255];
+	sprintf(buffer, "${1:%s}\n", ${2:var});
+snippet main
+	int main(int argc, char *argv[])
+	{
+		${1}
+	}
+snippet skel
+	#include <iostream>
+	#include <string>
+	#include <sstream>
+	#include <fstream>
+	#include <cstdio>
+	#include <cstdlib>
+	#include <cstring>
+
+	int main(int argc, char *argv[])
+	{
+		${1}
+	}
+snippet inc
+	#include <${1:string}>${2}
+snippet Inc
+	#include "${1:string}.h"${2}
+snippet cout
+	std::cout << "${1:text}" << std::endl;${2}
+snippet cerr
+	std::cerr << "${1:Error: }${2}" << std::endl;${3}
+snippet vec
+	std::vector<${1:std::string}> ${2:bar};
+snippet str
+	std::string ${1}
+snippet ts
+	std::to_string(${1})${2}
+snippet sp
+	std::shared_ptr<${1}>${2}
+snippet ms
+	std::make_shared<${1}>(${2})${3}
+snippet ef
+	#include <ErrorFile.h>
+	#include <StringBuilder.h>
+	static ErrorFile error_file;
+	error_file.WriteToFile(StringBuilder() << "ERROR: " << data);

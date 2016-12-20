@@ -1,0 +1,17 @@
+  *snippets.txt*	Plugin companion for snipmate
+
+This plugin has the snippets used by snipmate.  It also has the helper command
+OpenSnips which searches the runtimepath for snippets for the filetype
+currently being edited.
+
+						*snippets-mappings*
+The following mappings are suggested:
+
+nnoremap <leader>es :OpenSnips<cr>
+nnoremap <leader>rs :call ReloadAllSnippets()<cr>
+
+						*snippets-credit*
+snippets was developed by Chad Skeeters <github.com/cskeeters>.
+Distributed under Vim's |license|.
+
+vim:tw=78:fo=tcq2:ts=8:ft=help:norl:

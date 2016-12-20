@@ -1,0 +1,69 @@
+snippet a
+	${${0:arr}[@]}
+
+snippet pf
+	printf "${0}\n"
+
+snippet for
+	for ${1:var} in ${${2:array}[@]}; do
+	    ${3:echo $var}
+	done
+
+snippet read
+	while IFS= read -r line; do
+	    echo "$line"
+	done
+
+snippet readfind
+	while IFS= read -r -d $'\0' line; do
+	    echo "$line"
+	done < <(find /tmp -type f -print0)
+
+snippet re
+	${0:name}p='^${1:(.*)}$'
+	if [[ '${2:Chad is good}' =~ $${0}p ]]; then
+	    echo ${BASH_REMATCH[1]}
+	fi
+
+snippet log
+	show() {
+	    if [[ -t 1 ]]; then
+	        # Coloring is ok
+	        printf -- "\x1b[$${1:2}m$${2:1}\x1b[m\n"
+	    else
+	        printf -- "${3:1}\n"
+	    fi
+	}
+	
+	error() { show "ERROR: $${4:1}" 31; } # 31 is red
+	warn()  { show "WARN: $${5:1}" 33; }  # 33 is yellow
+	info()  { show "INFO: $${6:1}" 34; }  # 34 is blue
+	# Outputs the first parameter and terminates with exit 1
+	die() {
+	    error "$${7:1}"
+	    exit 1
+	}
+snippet case
+	case $${1:var} in
+	    ${2:chad|david})
+	        echo yes
+	        ;;
+	    *)
+	        echo no
+	        ;;
+	esac
+	${3}
+snippet cc
+	case $${1:var} in
+	    ${2:chad|david}) echo yes ;;
+	    *)          echo no  ;;
+	esac
+	${3}
+snippet i
+	info "${1}"${2}
+snippet w
+	warn "${1}"${2}
+snippet e
+	error "${1}"${2}
+snippet d
+	die "${1}"${2}
