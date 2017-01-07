@@ -3,38 +3,31 @@ snippet cd
 	cd "$(dirname "\$0")"
 snippet a
 	${${0:arr}[@]}
-
 snippet pf
 	printf "${0}\n"
-
-snippet for
+snippet forin
 	for ${1:var} in ${${2:array}[@]}; do
-	    ${3:echo $var}
+		echo $1
 	done
-
+snippet for
+	for ((i=0;i<${1:5};i++)); do
+		${2:echo $i}
+	done
 snippet whilefind
 	#-r  raw input - disables interpretion of backslash escapes and line-continuation in the read data
 	#-d  <DELIM>   - recognize <DELIM> as data-end, rather than <newline>
 	while IFS= read -r -d $'\0' line; do
 		echo "$line"
 	done < <(find /tmp -type f -print0)
-
-snippet read
+snippet whileread
 	while IFS= read -r line; do
 	    echo "$line"
 	done
-
-snippet readfind
-	while IFS= read -r -d $'\0' line; do
-	    echo "$line"
-	done < <(find /tmp -type f -print0)
-
 snippet re
 	${0:name}p='^${1:(.*)}$'
 	if [[ '${2:Chad is good}' =~ $${0}p ]]; then
 	    echo ${BASH_REMATCH[1]}
 	fi
-
 snippet log
 	show() {
 	    if [[ -t 1 ]]; then
