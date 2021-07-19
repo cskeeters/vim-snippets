@@ -26,19 +26,10 @@ snippet sprintf
 	char buffer[255];
 	sprintf(buffer, "${1:%s}\n", ${2:var});
 snippet main
-	int main(int argc, char *argv[])
-	{
-		${1}
-	}
-snippet skel
 	#include <iostream>
 	#include <string>
-	#include <sstream>
-	#include <fstream>
-	#include <cstdio>
-	#include <cstdlib>
-	#include <cstring>
-
+	#include <vector>
+	
 	int main(int argc, char *argv[])
 	{
 		${1}
@@ -61,8 +52,17 @@ snippet sp
 	std::shared_ptr<${1}>${2}
 snippet ms
 	std::make_shared<${1}>(${2})${3}
-snippet ef
-	#include <ErrorFile.h>
-	#include <StringBuilder.h>
-	static ErrorFile error_file;
-	error_file.WriteToFile(StringBuilder() << "ERROR: " << data);
+snippet log
+	#include <UTILS/log.h>
+snippet le
+	LOG_ERROR("${1:field}:"<<$1);
+snippet ld
+	LOG_DEBUG("${1:field}:"<<$1);
+snippet loge
+	LOG_ERROR("${1}");
+snippet logw
+	LOG_WARN("${1}");
+snippet logi
+	LOG_INFO("${1}");
+snippet logd
+	LOG_DEBUG("${1}");
