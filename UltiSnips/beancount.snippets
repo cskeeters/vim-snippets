@@ -1,0 +1,19 @@
+snippet new
+;; -*- mode: beancount; coding: utf-8; fill-column: 400; -*-
+option "title" "${1:My Ledger}"
+option "operating_currency" "USD"
+
+`date "+%Y-%m-%d"` open Equity:OpeningBalances
+`date "+%Y-%m-%d"` open Assets:${2:WellsFargo}:Checking
+endsnippet
+
+snippet open
+`date "+%Y-%m-%d"` * "${1:Food for party}"
+endsnippet
+
+snippet tx
+`date "+%Y-%m-%d"` * "${1:Food for party}"
+Liabilities
+	Assets:WellsFargo:Checking          ${2:-0.00} USD
+	Expenses:${3:Groceries}
+endsnippet
